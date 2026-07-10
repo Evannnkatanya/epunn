@@ -4,6 +4,9 @@ export default function Background() {
   const [scrollY, setScrollY] = useState(0)
 
   useEffect(() => {
+    // Disable scroll event listener on mobile to save performance
+    if (window.innerWidth < 768) return
+
     let ticking = false
 
     const handleScroll = () => {
@@ -23,38 +26,38 @@ export default function Background() {
   }, [])
 
   return (
-    <div className="fixed inset-0 -z-50 overflow-hidden bg-gradient-to-br from-[#081849] via-[#0c1d5e] to-[#060e30]">
+    <div className="fixed inset-0 -z-50 overflow-hidden bg-gradient-to-br from-[#f9e8a2] via-[#b4e1eb] to-[#78a4cb]">
       {/* Sapphire Blue → Light Blue blob — top-left (multiplier: 0.1) */}
       <div
         style={{
-          transform: `translateY(${scrollY * 0.1}px)`,
+          transform: scrollY !== 0 ? `translateY(${scrollY * 0.1}px)` : 'none',
           transition: 'transform 0.1s linear'
         }}
-        className="absolute top-[-15%] left-[-10%] w-[55vw] h-[55vw] rounded-full bg-gradient-to-br from-[#213885] to-[#5F3475] opacity-[0.30] blur-[180px]"
+        className="absolute top-[-15%] left-[-10%] w-[55vw] h-[55vw] rounded-full bg-gradient-to-br from-[#f9e8a2] to-[#b4e1eb] opacity-[0.45] blur-[100px] md:blur-[180px] hidden md:block"
       />
       {/* Steel Blue → Deep Blue blob — right (multiplier: 0.2) */}
       <div
         style={{
-          transform: `translateY(${scrollY * 0.2}px)`,
+          transform: scrollY !== 0 ? `translateY(${scrollY * 0.2}px)` : 'none',
           transition: 'transform 0.1s linear'
         }}
-        className="absolute top-[25%] right-[-15%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-br from-[#5F3475] to-[#893172] opacity-[0.25] blur-[200px]"
+        className="absolute top-[25%] right-[-15%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-br from-[#b4e1eb] to-[#95bdd7] opacity-[0.40] blur-[120px] md:blur-[200px] hidden md:block"
       />
       {/* Light Blue → Sapphire Blue blob — bottom-left (multiplier: -0.15) */}
       <div
         style={{
-          transform: `translateY(${scrollY * -0.15}px)`,
+          transform: scrollY !== 0 ? `translateY(${scrollY * -0.15}px)` : 'none',
           transition: 'transform 0.1s linear'
         }}
-        className="absolute bottom-[-10%] left-[15%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-br from-[#893172] to-[#213885] opacity-[0.22] blur-[160px]"
+        className="absolute bottom-[-10%] left-[15%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-br from-[#95bdd7] to-[#78a4cb] opacity-[0.35] blur-[90px] md:blur-[160px] hidden md:block"
       />
       {/* Steel Blue → Light Blue blob — center-right (multiplier: 0.05) */}
       <div
         style={{
-          transform: `translateY(${scrollY * 0.05}px)`,
+          transform: scrollY !== 0 ? `translateY(${scrollY * 0.05}px)` : 'none',
           transition: 'transform 0.1s linear'
         }}
-        className="absolute top-[60%] right-[20%] w-[30vw] h-[30vw] rounded-full bg-gradient-to-br from-[#ECDFD2] to-[#5F3475] opacity-[0.10] blur-[140px]"
+        className="absolute top-[60%] right-[20%] w-[30vw] h-[30vw] rounded-full bg-gradient-to-br from-[#78a4cb] to-[#f9e8a2] opacity-[0.25] blur-[80px] md:blur-[140px] hidden md:block"
       />
     </div>
   )

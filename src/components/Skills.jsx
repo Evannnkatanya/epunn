@@ -39,22 +39,22 @@ export default function Skills() {
     <section id="skills" className="hidden md:block py-24 px-[5%] bg-transparent">
       <div ref={ref} className="max-w-[900px] mx-auto reveal">
         <div className="text-xs font-semibold tracking-[1.5px] uppercase bg-gradient-to-r from-[#213885] to-[#893172] bg-clip-text text-transparent mb-3">Kemampuan</div>
-        <div className="font-display text-[clamp(28px,4vw,36px)] font-bold text-white leading-[1.2] tracking-tight mb-4">Tech Stack</div>
-        <p className="text-base text-white/60 max-w-[560px] leading-[1.7] mb-12">
+        <div className="font-display text-[clamp(28px,4vw,36px)] font-bold text-[#081849] leading-[1.2] tracking-tight mb-4">Tech Stack</div>
+        <p className="text-base text-[#081849]/70 max-w-[560px] leading-[1.7] mb-12">
           Teknologi dan tools yang saya gunakan dalam membangun proyek-proyek nyata.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {skillCards.map((card) => (
-            <div key={card.title} className="bg-white/[0.07] backdrop-blur-xl border border-white/[0.10] rounded-2xl p-6 shadow-glass transition-all duration-300 hover:bg-white/[0.12] hover:-translate-y-1">
+            <div key={card.title} className="bg-white/50 backdrop-blur-xl border border-black/[0.06] rounded-2xl p-6 shadow-glass transition-all duration-300 hover:bg-white/75 hover:-translate-y-1">
               <div className="flex items-center gap-[10px] mb-4">
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center border border-white/[0.10] shadow-sm" style={{ background: card.bg }}>
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center border border-black/[0.05] shadow-sm" style={{ background: card.bg }}>
                   <i className={`ti ${card.icon}`} style={{ fontSize: 18, color: card.color }} />
                 </div>
-                <div className="font-display font-semibold text-sm text-white">{card.title}</div>
+                <div className="font-display font-semibold text-sm text-[#081849]">{card.title}</div>
               </div>
               <div className="flex flex-wrap gap-[6px]">
                 {card.tags.map((tag) => (
-                  <span key={tag} className="bg-white/[0.08] border border-white/[0.10] text-white/75 text-xs font-medium px-[10px] py-1 rounded-[6px]">
+                  <span key={tag} className="bg-white/70 border border-black/[0.05] text-[#081849]/80 text-xs font-semibold px-[10px] py-1 rounded-[6px]">
                     {tag}
                   </span>
                 ))}
@@ -104,23 +104,23 @@ export function SkillsMobile() {
     <section className="block md:hidden py-16 px-[5%] bg-transparent overflow-hidden">
       <div ref={ref} className="max-w-[900px] mx-auto reveal">
         <div className="text-xs font-semibold tracking-[1.5px] uppercase bg-gradient-to-r from-[#213885] to-[#893172] bg-clip-text text-transparent mb-3">Kemampuan</div>
-        <div className="font-display text-[28px] font-bold text-white leading-[1.2] tracking-tight mb-4">Tech Stack</div>
-        <p className="text-sm text-white/60 leading-[1.7] mb-8">
+        <div className="font-display text-[28px] font-bold text-[#081849] leading-[1.2] tracking-tight mb-4">Tech Stack</div>
+        <p className="text-sm text-[#081849]/70 leading-[1.7] mb-8">
           Teknologi dan tools yang saya gunakan.
         </p>
         
-        {/* Infinite scrolling marquee with fade overlays */}
-        <div className="relative w-full overflow-hidden py-4 before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-12 before:bg-gradient-to-r before:from-[#081849] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-12 after:bg-gradient-to-l after:from-[#081849] after:to-transparent">
+        {/* Infinite scrolling marquee with fade overlays using pale cyan/blue color from the palette */}
+        <div className="relative w-full overflow-hidden py-4 before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-12 before:bg-gradient-to-r before:from-[#b4e1eb] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-12 after:bg-gradient-to-l after:from-[#b4e1eb] after:to-transparent">
           <div className="animate-marquee flex gap-4">
             {listItems.map((skill, index) => (
               <div
                 key={index}
-                className="flex items-center gap-3 px-5 py-3 bg-white/[0.07] backdrop-blur-xl border border-white/[0.10] rounded-2xl shadow-glass shrink-0"
+                className="flex items-center gap-3 px-5 py-3 bg-white/60 backdrop-blur-xl border border-black/[0.06] rounded-2xl shadow-glass shrink-0"
               >
-                <span className="text-lg" style={{ color: skill.color }}>
+                <span className="text-lg animate-pulse-dot" style={{ color: skill.color }}>
                   <i className={`ti ${skill.icon}`} />
                 </span>
-                <span className="text-sm font-semibold text-white/95">{skill.name}</span>
+                <span className="text-sm font-semibold text-[#081849]">{skill.name}</span>
               </div>
             ))}
           </div>

@@ -6,8 +6,8 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  background: #081849;
-  color: #ffffff;
+  background: #f9e8a2;
+  color: #081849;
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   line-height: 1.7;
@@ -16,26 +16,27 @@ body {
 
 /* ── SELECTION ── */
 ::selection {
-  background: rgba(137, 49, 114, 0.35);
-  color: #ffffff;
+  background: rgba(120, 164, 203, 0.35);
+  color: #081849;
 }
 
-/* ── SCROLLBAR (dark theme) ── */
+/* ── SCROLLBAR (light theme) ── */
 ::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #081849; }
-::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+::-webkit-scrollbar-track { background: #b4e1eb; }
+::-webkit-scrollbar-thumb { background: rgba(8, 24, 73, 0.15); border-radius: 4px; }
 
-::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
+::-webkit-scrollbar-thumb:hover { background: rgba(8, 24, 73, 0.25); }
 
-/* ── SCROLL REVEAL ── */
+/* ── SCROLL REVEAL (Hardware-accelerated) ── */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translate3d(0, 16px, 0);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
 }
 .reveal.visible {
   opacity: 1;
-  transform: none;
+  transform: translate3d(0, 0, 0);
 }
 
 /* ── PULSE ANIMATION ── */

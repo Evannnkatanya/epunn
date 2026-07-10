@@ -29,12 +29,12 @@ export default function Contact() {
     <section id="contact" className="py-24 px-[5%] bg-transparent">
       <div ref={ref} className="max-w-[900px] mx-auto reveal">
         <div className="text-xs font-semibold tracking-[1.5px] uppercase bg-gradient-to-r from-[#213885] to-[#893172] bg-clip-text text-transparent mb-3">Contacts</div>
-        <div className="font-display text-[clamp(28px,4vw,36px)] font-bold text-white leading-[1.2] tracking-tight mb-4">
+        <div className="font-display text-[clamp(28px,4vw,36px)] font-bold text-[#081849] leading-[1.2] tracking-tight mb-4">
           Lets Connect
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           <div>
-            <p className="text-sm text-white/55 mb-7">
+            <p className="text-sm text-[#081849]/65 mb-7">
               Tertarik untuk kolaborasi, magang, proyek freelance, atau sekadar ngobrol soal teknologi dan ML? Jangan ragu untuk menghubungi saya.
             </p>
             <div className="flex flex-col gap-3">
@@ -44,7 +44,7 @@ export default function Contact() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-[14px_16px] bg-white/[0.07] backdrop-blur-xl border border-white/[0.10] rounded-2xl no-underline text-white/80 text-sm font-medium transition-all duration-300 hover:bg-white/[0.14] hover:border-[#213885]/40 hover:text-white shadow-glass"
+                  className="flex items-center gap-3 p-[14px_16px] bg-white/55 backdrop-blur-xl border border-black/[0.06] rounded-2xl no-underline text-[#081849]/80 text-sm font-semibold transition-all duration-300 hover:bg-white/80 hover:border-[#213885]/40 hover:text-[#081849] shadow-glass"
                 >
                   <span className="text-base w-5 text-center text-[#893172]">
                     <i className={`ti ${link.icon}`} />
@@ -56,26 +56,26 @@ export default function Contact() {
           </div>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
-              <label className="text-[13px] font-medium text-white/80 mb-[6px] block">Nama</label>
+              <label className="text-[13px] font-semibold text-[#081849]/80 mb-[6px] block">Nama</label>
               <input
                 type="text"
                 placeholder="Nama kamu"
-                className="w-full p-[10px_14px] bg-white/[0.06] backdrop-blur-xl border border-white/[0.12] rounded-xl text-sm text-white font-body transition-all duration-200 outline-none placeholder:text-white/30 focus:bg-white/[0.10] focus:border-[#213885]/50 focus:shadow-md focus:shadow-[#213885]/10"
+                className="w-full p-[10px_14px] bg-white/60 backdrop-blur-xl border border-black/[0.10] rounded-xl text-sm text-[#081849] font-semibold transition-all duration-200 outline-none placeholder:text-[#081849]/35 focus:bg-white/95 focus:border-[#213885]/50 focus:shadow-md focus:shadow-[#213885]/10"
               />
             </div>
             <div className="mb-4">
-              <label className="text-[13px] font-medium text-white/80 mb-[6px] block">Email</label>
+              <label className="text-[13px] font-semibold text-[#081849]/80 mb-[6px] block">Email</label>
               <input
                 type="email"
                 placeholder="email@contoh.com"
-                className="w-full p-[10px_14px] bg-white/[0.06] backdrop-blur-xl border border-white/[0.12] rounded-xl text-sm text-white font-body transition-all duration-200 outline-none placeholder:text-white/30 focus:bg-white/[0.10] focus:border-[#213885]/50 focus:shadow-md focus:shadow-[#213885]/10"
+                className="w-full p-[10px_14px] bg-white/60 backdrop-blur-xl border border-black/[0.10] rounded-xl text-sm text-[#081849] font-semibold transition-all duration-200 outline-none placeholder:text-[#081849]/35 focus:bg-white/95 focus:border-[#213885]/50 focus:shadow-md focus:shadow-[#213885]/10"
               />
             </div>
             <div className="mb-4">
-              <label className="text-[13px] font-medium text-white/80 mb-[6px] block">Pesan</label>
+              <label className="text-[13px] font-semibold text-[#081849]/80 mb-[6px] block">Pesan</label>
               <textarea
                 placeholder="Halo Evan, saya ingin..."
-                className="w-full p-[10px_14px] bg-white/[0.06] backdrop-blur-xl border border-white/[0.12] rounded-xl text-sm text-white font-body transition-all duration-200 outline-none placeholder:text-white/30 focus:bg-white/[0.10] focus:border-[#213885]/50 resize-y min-h-[120px] focus:shadow-md focus:shadow-[#213885]/10"
+                className="w-full p-[10px_14px] bg-white/60 backdrop-blur-xl border border-black/[0.10] rounded-xl text-sm text-[#081849] font-semibold transition-all duration-200 outline-none placeholder:text-[#081849]/35 focus:bg-white/95 focus:border-[#213885]/50 resize-y min-h-[120px] focus:shadow-md focus:shadow-[#213885]/10"
               />
             </div>
             <button

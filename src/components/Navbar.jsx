@@ -27,8 +27,8 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 h-16 bg-white/[0.06] backdrop-blur-2xl border-b border-white/[0.08] flex items-center justify-between px-[5%] z-[100] shadow-glass">
-        <a href="#home" className="font-display font-bold text-lg text-white no-underline tracking-tight">
+      <nav className="fixed top-0 left-0 right-0 h-16 bg-white/40 backdrop-blur-2xl border-b border-black/[0.06] flex items-center justify-between px-[5%] z-[100] shadow-glass">
+        <a href="#home" className="font-display font-bold text-lg text-[#081849] no-underline tracking-tight">
           Evan<span className="bg-gradient-to-r from-[#213885] to-[#893172] bg-clip-text text-transparent">.</span>
         </a>
 
@@ -38,8 +38,8 @@ export default function Navbar() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className={`no-underline text-sm font-medium transition-colors duration-200 ${
-                  activeSection === l.href.slice(1) ? 'text-white' : 'text-white/50 hover:text-white/90'
+                className={`no-underline text-sm font-semibold transition-colors duration-200 ${
+                  activeSection === l.href.slice(1) ? 'text-[#081849]' : 'text-[#081849]/60 hover:text-[#081849]/95'
                 }`}
               >
                 {l.label}
@@ -61,21 +61,21 @@ export default function Navbar() {
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Open menu"
         >
-          <span className="block w-[22px] h-[2px] bg-white rounded-sm transition-all duration-300" />
-          <span className="block w-[22px] h-[2px] bg-white rounded-sm transition-all duration-300" />
-          <span className="block w-[22px] h-[2px] bg-white rounded-sm transition-all duration-300" />
+          <span className="block w-[22px] h-[2px] bg-[#081849] rounded-sm transition-all duration-300" />
+          <span className="block w-[22px] h-[2px] bg-[#081849] rounded-sm transition-all duration-300" />
+          <span className="block w-[22px] h-[2px] bg-[#081849] rounded-sm transition-all duration-300" />
         </button>
       </nav>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="fixed top-16 left-0 right-0 bg-white/[0.08] backdrop-blur-2xl border-b border-white/[0.08] p-[20px_5%] flex flex-col gap-4 z-[99] shadow-glass">
+        <div className="fixed top-16 left-0 right-0 bg-white/90 backdrop-blur-2xl border-b border-black/[0.06] p-[20px_5%] flex flex-col gap-4 z-[99] shadow-glass">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setMobileOpen(false)}
-              className="no-underline text-[15px] text-white/70 font-medium py-[6px] border-b border-white/[0.08] last:border-none hover:text-white transition-colors"
+              className="no-underline text-[15px] text-[#081849]/70 font-semibold py-[6px] border-b border-black/[0.06] last:border-none hover:text-[#081849] transition-colors"
             >
               {l.label}
             </a>
