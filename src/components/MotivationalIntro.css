@@ -1,0 +1,272 @@
+/* ══════════════════════════════════════════════════════
+   MOTIVATIONAL CORE INTRO — CSS Keyframes & Styles
+   Inspired by TikTok "motivational core" editing style
+   ══════════════════════════════════════════════════════ */
+
+/* ── Slow continuous rotation for light streaks scene ── */
+@keyframes slowSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ── Text reveal: blur-in → hold → blur-out ── */
+@keyframes textReveal {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: scale(1.2);
+  }
+  20% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: scale(1.0);
+  }
+  75% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: scale(1.0);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: scale(0.92);
+  }
+}
+
+/* ── Text reveal for final name (stays visible, no blur-out) ── */
+@keyframes textRevealStay {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: scale(1.2);
+  }
+  40% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: scale(1.0);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: scale(1.0);
+  }
+}
+
+/* ── Orb scale-in ── */
+@keyframes orbAppear {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ── Background gradient transition ── */
+@keyframes bgTransition {
+  0% {
+    background: #000000;
+  }
+  100% {
+    background: radial-gradient(ellipse at 50% 30%, #0a1a3a 0%, #050d1a 40%, #000000 70%);
+  }
+}
+
+/* ── Light streak glow pulse ── */
+@keyframes streakPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.9; }
+}
+
+/* ── Fade out entire scene ── */
+@keyframes sceneFadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ── Container ── */
+.motivational-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+.motivational-intro.phase-2 {
+  animation: bgTransition 1.5s ease forwards;
+}
+
+.motivational-intro.fading-out {
+  animation: sceneFadeOut 1s ease forwards;
+}
+
+/* ── Phase 1: Question text ── */
+.phase1-text {
+  position: absolute;
+  color: #ffffff;
+  font-size: clamp(18px, 4vw, 28px);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  text-align: center;
+  max-width: 80%;
+  line-height: 1.5;
+}
+
+/* ── Phase 2: Rotating scene ── */
+.rotating-scene {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: slowSpin 17s linear infinite;
+  will-change: transform;
+}
+
+.rotating-text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+  max-width: 70vw;
+  text-align: center;
+}
+
+.rotating-text {
+  color: #ffffff;
+  font-size: clamp(16px, 3.5vw, 24px);
+  font-weight: 300;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  line-height: 1.6;
+  animation: textReveal 2.2s ease both;
+}
+
+/* ── Phase 3: Orb ── */
+.orb-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.orb {
+  width: clamp(180px, 30vw, 230px);
+  height: clamp(180px, 30vw, 230px);
+  border-radius: 50%;
+  background: radial-gradient(circle at 45% 40%, #2a2a2a 0%, #1a1a1a 30%, #0a0a0a 60%, #000000 100%);
+  box-shadow:
+    0 0 40px rgba(255, 255, 255, 0.03),
+    0 0 80px rgba(255, 255, 255, 0.02),
+    inset 0 -3px 25px rgba(255, 255, 255, 0.06),
+    inset 0 2px 15px rgba(255, 255, 255, 0.04);
+  animation: orbAppear 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Rim light effect on orb */
+.orb::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 15%;
+  right: 15%;
+  height: 50%;
+  background: radial-gradient(ellipse at center top, rgba(255,255,255,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.orb-name {
+  color: #ffffff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(20px, 4vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-align: center;
+  z-index: 1;
+}
+
+.orb-subtitle {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: clamp(11px, 2vw, 14px);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin-top: 6px;
+  text-align: center;
+  z-index: 1;
+}
+
+/* ── SVG Light Streaks ── */
+.light-streaks-svg {
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  top: -20%;
+  left: -20%;
+  pointer-events: none;
+}
+
+.light-streak {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.55);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  animation: streakPulse 4s ease-in-out infinite;
+}
+
+.light-streak:nth-child(2) {
+  stroke: rgba(255, 255, 255, 0.35);
+  stroke-width: 1;
+  animation-delay: -2s;
+}
+
+/* ── ACCESSIBILITY: Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .motivational-intro,
+  .motivational-intro.phase-2 {
+    background: radial-gradient(ellipse at 50% 30%, #0a1a3a 0%, #050d1a 40%, #000000 70%) !important;
+    animation: none !important;
+  }
+
+  .rotating-scene {
+    animation: none !important;
+  }
+
+  .phase1-text,
+  .rotating-text,
+  .orb,
+  .orb-name,
+  .orb-subtitle {
+    animation: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+  }
+
+  .orb {
+    transform: scale(1) !important;
+  }
+
+  /* Show static version: just the orb with name */
+  .motivational-intro .phase1-text {
+    display: none;
+  }
+}
