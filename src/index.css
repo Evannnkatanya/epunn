@@ -50,12 +50,19 @@ body {
 
 /* ── MARQUEE ANIMATION ── */
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 .animate-marquee {
   display: flex;
   width: max-content;
   animation: marquee 25s linear infinite;
+  will-change: transform;
+}
+
+/* ── MARQUEE FADE MASK ── */
+.marquee-fade-mask {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 }
 

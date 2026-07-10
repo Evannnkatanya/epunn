@@ -109,8 +109,8 @@ export function SkillsMobile() {
           Teknologi dan tools yang saya gunakan.
         </p>
         
-        {/* Infinite scrolling marquee with fade overlays using pale cyan/blue color from the palette */}
-        <div className="relative w-full overflow-hidden py-4 before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-12 before:bg-gradient-to-r before:from-[#b4e1eb] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-12 after:bg-gradient-to-l after:from-[#b4e1eb] after:to-transparent">
+        {/* Infinite scrolling marquee with fade overlays using CSS mask */}
+        <div className="relative w-full overflow-hidden py-4 marquee-fade-mask">
           <div className="animate-marquee flex gap-4">
             {listItems.map((skill, index) => (
               <div
