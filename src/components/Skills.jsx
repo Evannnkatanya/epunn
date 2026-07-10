@@ -36,7 +36,7 @@ export default function Skills() {
   }, [])
 
   return (
-    <section id="skills" className="py-24 px-[5%] bg-transparent">
+    <section id="skills" className="hidden md:block py-24 px-[5%] bg-transparent">
       <div ref={ref} className="max-w-[900px] mx-auto reveal">
         <div className="text-xs font-semibold tracking-[1.5px] uppercase bg-gradient-to-r from-[#213885] to-[#893172] bg-clip-text text-transparent mb-3">Kemampuan</div>
         <div className="font-display text-[clamp(28px,4vw,36px)] font-bold text-white leading-[1.2] tracking-tight mb-4">Tech Stack</div>
@@ -61,6 +61,69 @@ export default function Skills() {
               </div>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export function SkillsMobile() {
+  const ref = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('visible') }),
+      { threshold: 0.08 }
+    )
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [])
+
+  const mobileSkills = [
+    { name: 'Python', icon: 'ti-brand-python', color: '#3776AB' },
+    { name: 'XGBoost', icon: 'ti-cpu', color: '#FF5A00' },
+    { name: 'scikit-learn', icon: 'ti-brain', color: '#F7931E' },
+    { name: 'Pandas', icon: 'ti-table', color: '#893172' },
+    { name: 'NumPy', icon: 'ti-binary', color: '#213885' },
+    { name: 'Streamlit', icon: 'ti-device-desktop', color: '#FF4B4B' },
+    { name: 'Plotly', icon: 'ti-chart-bar', color: '#5F3475' },
+    { name: 'MySQL', icon: 'ti-database', color: '#213885' },
+    { name: 'React', icon: 'ti-brand-react', color: '#61DAFB' },
+    { name: 'Tailwind', icon: 'ti-brand-tailwind', color: '#06B6D4' },
+    { name: 'JavaScript', icon: 'ti-brand-javascript', color: '#F7DF1E' },
+    { name: 'Git', icon: 'ti-brand-git', color: '#F05032' },
+    { name: 'Vite', icon: 'ti-bolt', color: '#646CFF' },
+    { name: 'HTML5', icon: 'ti-brand-html5', color: '#E34F26' },
+    { name: 'CSS3', icon: 'ti-brand-css3', color: '#1572B6' },
+  ]
+
+  // Duplicate items to ensure a seamless loop
+  const listItems = [...mobileSkills, ...mobileSkills]
+
+  return (
+    <section className="block md:hidden py-16 px-[5%] bg-transparent overflow-hidden">
+      <div ref={ref} className="max-w-[900px] mx-auto reveal">
+        <div className="text-xs font-semibold tracking-[1.5px] uppercase bg-gradient-to-r from-[#213885] to-[#893172] bg-clip-text text-transparent mb-3">Kemampuan</div>
+        <div className="font-display text-[28px] font-bold text-white leading-[1.2] tracking-tight mb-4">Tech Stack</div>
+        <p className="text-sm text-white/60 leading-[1.7] mb-8">
+          Teknologi dan tools yang saya gunakan.
+        </p>
+        
+        {/* Infinite scrolling marquee with fade overlays */}
+        <div className="relative w-full overflow-hidden py-4 before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-12 before:bg-gradient-to-r before:from-[#081849] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-12 after:bg-gradient-to-l after:from-[#081849] after:to-transparent">
+          <div className="animate-marquee flex gap-4">
+            {listItems.map((skill, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-3 px-5 py-3 bg-white/[0.07] backdrop-blur-xl border border-white/[0.10] rounded-2xl shadow-glass shrink-0"
+              >
+                <span className="text-lg" style={{ color: skill.color }}>
+                  <i className={`ti ${skill.icon}`} />
+                </span>
+                <span className="text-sm font-semibold text-white/95">{skill.name}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

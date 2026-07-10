@@ -2,7 +2,7 @@ import Background from './components/Background'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
-import Skills from './components/Skills'
+import Skills, { SkillsMobile } from './components/Skills'
 import Projects from './components/Projects'
 import Certs from './components/Certs'
 import Contact from './components/Contact'
@@ -20,6 +20,7 @@ export default function App() {
       <Skills />
       <Projects />
       <Certs />
+      <SkillsMobile />
       <Contact />
       <Footer />
     </div>
