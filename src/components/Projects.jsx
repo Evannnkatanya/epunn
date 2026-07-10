@@ -60,7 +60,7 @@ export default function Projects() {
               <ul className="list-none mb-5 flex flex-col gap-[6px]">
                 {p.features.map((f) => (
                   <li key={f} className="text-[13px] text-[#081849]/65 flex gap-2">
-                    <span className="bg-gradient-to-r from-[#213885] to-[#893172] bg-clip-text text-transparent shrink-0">→</span> {f}
+                    <span className="bg-gradient-to-r from-[#213885] to-[#893172] bg-clip-text text-transparent shrink-0"></span> {f}
                   </li>
                 ))}
               </ul>
